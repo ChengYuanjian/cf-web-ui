@@ -1,0 +1,265 @@
+<div class="bg-light lter b-b wrapper-md" ng-controller="OrganizationDetailsCtrl">
+    <h1 class="m-n font-thin h4" style="vertical-align: middle;">
+        <a ui-sref="app.org_manage.list">组织管理</a>
+        <i class="glyphicon glyphicon-chevron-right"></i>
+        {{name}}
+    </h1>
+</div>
+
+<div >
+    <tabset class="tab-container">
+        <tab ng-controller="OrganizationDetailsCtrl1">
+            <tab-heading>信息统计
+            </tab-heading>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading font-bold">组织信息</div>
+                        <div class="panel-body">
+                            <form class="bs-example form-horizontal" name="myForm" novalidate>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">组织名称：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" name="orgname" ng-model="organization.name"
+                                               placeholder="组织名称,必填" required>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.orgname.$dirty && myForm.orgname.$valid"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">服务配额：</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="total_services" class="form-control"
+                                               placeholder="服务配额，-1表示无限制,必填" ng-model="quota.total_services" required>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.total_services.$dirty && myForm.total_services.$valid"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">路由配额：</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="total_routes" class="form-control"
+                                               placeholder="路由配额，-1表示无限制,必填" ng-model="quota.total_routes" required>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.total_routes.$dirty && myForm.total_routes.$valid"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">域名配额：</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="total_private_domains" class="form-control"
+                                               placeholder="域名配额，-1表示无限制" ng-model="quota.total_private_domains">
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.total_private_domains.$dirty && myForm.total_private_domains.$valid"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">内存配额(M)：</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="memory_limit" class="form-control"
+                                               placeholder="内存配额,必填" ng-model="quota.memory_limit" required>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.memory_limit.$dirty && myForm.memory_limit.$valid"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">实例内存配额(M)：</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="instance_memory_limit" class="form-control"
+                                               placeholder="实例内存配额，-1表示无限制,必填" ng-model="quota.instance_memory_limit"
+                                               required>
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.instance_memory_limit.$dirty && myForm.instance_memory_limit.$valid"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">实例配额：</label>
+                                    <div class="col-md-8">
+                                        <input type="number" name="app_instance_limit" class="form-control"
+                                               placeholder="实例配额，-1表示无限制" ng-model="quota.app_instance_limit">
+                                        <span class="glyphicon glyphicon-ok form-control-feedback"
+                                              ng-show="myForm.app_instance_limit.$dirty && myForm.app_instance_limit.$valid"></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-info" ng-click="updateQuotaForOrganization()"
+                                    ng-disabled="myForm.$invalid">确认
+                            </button>
+                            <button type="reset" class="btn btn-default" ng-click="reset()">取消</button>
+                        </footer>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading font-bold">配额信息统计</div>
+                        <div class="panel-body">
+                            <div>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-5" ui-jq="easyPieChart"  ui-refresh="sumMemRate"  ui-options="{
+													percent: sumMemRate,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+                                     class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+                                    <div>
+                                        <span class="h2 m-l-sm step" ng-bind="sumMemRate"></span>%
+                                        <div class="text text-sm">内存</div>
+                                    </div>
+                                    <canvas style="width: 158px; height: 158px;"></canvas>
+                                </div>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-5" ui-jq="easyPieChart" ui-refresh="sumInstanceRate" ui-options="{
+													percent: sumInstanceRate,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+                                     class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+                                    <div>
+                                        <span class="h2 m-l-sm step" ng-bind="sumInstanceRate"></span>%
+                                        <div class="text text-sm">实例</div>
+                                    </div>
+                                    <canvas style="width: 158px; height: 158px;"></canvas>
+                                </div>
+                            </div>
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+                            <div>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-5" ui-jq="easyPieChart" ui-refresh="sumServiceRate" ui-options="{
+													percent: sumServiceRate,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+                                     class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+                                    <div>
+                                        <span class="h2 m-l-sm step" ng-bind="sumServiceRate"></span>%
+                                        <div class="text text-sm">服务</div>
+                                    </div>
+                                    <canvas style="width: 158px; height: 158px;"></canvas>
+                                </div>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-5" ui-jq="easyPieChart" ui-refresh="sumDomainRate" ui-options="{
+													percent: sumDomainRate,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+                                     class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+                                    <div>
+                                        <span class="h2 m-l-sm step" ng-bind="sumDomainRate"></span>%
+                                        <div class="text text-sm">域名</div>
+                                    </div>
+                                    <canvas style="width: 158px; height: 158px;"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tab>
+        <tab ng-controller="OrganizationDetailsCtrl2">
+            <tab-heading> 空间信息</tab-heading>
+            <div class="panel panel-default">
+                <div class="panel-body b-b b-light">
+                    <div class="col-sm-5">
+                        <button type="submit" class="btn btn-sm btn-info" ng-click="createSpace()">+创建</button>
+                        <button type="submit" class="btn btn-sm btn-danger" ng-click="deleteSpace()">－删除</button>
+                        <button type="submit" class="btn btn-sm btn-warning" ng-click="refresh()">刷新</button>
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-3">
+                        <input placeholder="查找空间" class="input-sm form-control" type="text" ng-model="filter.filterSpace"/>
+                    </div>
+                </div>
+                <div ui-grid="spaceGridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize></div>
+            </div>
+        </tab>
+        <tab ng-controller="OrganizationDetailsCtrl3">
+            <tab-heading> 私有域名</tab-heading>
+            <div class="row">
+                <div class="col-md-6" ng-controller="BindedDomainCtrl">
+                    <div class="panel panel-default">
+                        <div class="panel-heading font-bold">
+                            <input placeholder="查找已绑定域名" class="input-sm form-control" type="text" ng-model="filter.filterDomain"/>
+                        </div>
+                        <div class="panel-body">
+                            <div ui-grid="domainGridOptions" ui-grid-pagination ui-grid-auto-resize></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-controller="UnbindedDomainCtrl">
+                    <div class="panel panel-default">
+                        <div class="panel-heading font-bold">
+                            <input placeholder="查找未绑定域名" class="input-sm form-control" type="text" ng-model="filter.filterDomain"/>
+                        </div>
+                        <div class="panel-body">
+                            <div ui-grid="domainGridOptions" ui-grid-pagination ui-grid-auto-resize></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tab>
+        <tab ng-controller="OrganizationDetailsCtrl4">
+            <tab-heading> 共享域名</tab-heading>
+
+            <div class="panel panel-default">
+                <div class="panel-body b-b b-light">
+                    <div class="col-sm-5">
+                        <!--button type="submit" class="btn btn-sm btn-info">+创建</button>
+                        <button type="submit" class="btn btn-sm btn-warning" ng-click="refresh()">刷新</button-->
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-3">
+                        <input placeholder="查找域名" class="input-sm form-control" type="text" ng-model="filter.filterDomain"/>
+                    </div>
+                </div>
+                <div ui-grid="domainGridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize></div>
+            </div>
+        </tab>
+        <tab ng-controller="OrganizationDetailsCtrl5">
+            <tab-heading> 用户信息</tab-heading>
+            <div class="row">
+                <div class="col-md-6" ng-controller="BindedUserCtrl">
+                    <div class="panel panel-default">
+                        <div class="panel-heading font-bold">
+                            <input placeholder="查找已绑定用户" class="input-sm form-control" type="text" ng-model="filter.filterBindedUser"/>
+                        </div>
+                        <div class="panel-body">
+                            <div ui-grid="bindedUserGridOptions" ui-grid-pagination ui-grid-auto-resize></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" ng-controller="UnbindedUserCtrl">
+                    <div class="panel panel-default">
+                        <div class="panel-heading font-bold">
+                            <input placeholder="查找未绑定用户" class="input-sm form-control" type="text" ng-model="filter.filterUnBindedUser"/>
+                        </div>
+                        <div class="panel-body">
+                            <div ui-grid="unBindedUserGridOptions" ui-grid-pagination ui-grid-auto-resize></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tab>
+    </tabset>
+</div>

@@ -1,0 +1,385 @@
+<div class="bg-light lter b-b wrapper-md" ng-controller="Spaceforname">
+	<h1 class="m-n font-thin h4" style="vertical-align: middle;">
+		<a ui-sref="app.space_manage.list">空间管理</a>
+		<i class="glyphicon glyphicon-chevron-right"></i>
+		{{space_name}}
+	</h1>
+</div>
+
+<div>
+	<tabset class="tab-container">
+	<tab ng-controller="SpaceListDetail">
+	<tab-heading>信息统计
+	</tab-heading>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading font-bold">空间信息</div>
+				<div class="panel-body">
+					<form class="bs-example form-horizontal" name="myForm">
+						<div class="form-group">
+							<label class="col-md-3 control-label">所属组织：</label>
+							<div class="col-md-9">
+								<!--<select name="orglist" class="form-control m-b">
+									<option>org 1</option>
+									<option>org 2</option>
+									<option>org 3</option>
+									<option>org 4</option>
+								</select>-->
+								<input class="form-control" placeholder="组织名称"  ng-model="organizationName" readonly>
+								</select>
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									  ng-show="myForm.selected_org.$dirty && myForm.selected_org.$valid"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">空间名称：</label>
+							<div class="col-md-9">
+								<input class="form-control" placeholder="空间名称"  ng-model="spaceName">
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									  ng-show="myForm.spaceName.$dirty && myForm.spaceName.$valid"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-3 control-label">空间大小：</label>
+							<div class="col-md-9 radio">
+								<label>
+									<input type="radio" name="optionsRadios" id="optionsRadios1" value="s" ng-click="isActive('s')">
+									小
+								</label>
+								<label>
+									<input type="radio" name="optionsRadios" id="optionsRadios2" value="m" ng-click="isActive('m')">
+									中
+								</label>
+								<label>
+									<input type="radio" name="optionsRadios" id="optionsRadios3" value="l" ng-click="isActive('l')">
+									大
+								</label>
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									  ng-show="myForm.orgname.$dirty && myForm.orgname.$valid"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">内存配额(G)：</label>
+							<div class="col-md-9">
+								<input type="number" class="form-control" placeholder="内存配额" ng-model="quota.memory_limit">
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									  ng-show="myForm.memory_limit.$dirty && myForm.memory_limit.$valid"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">应用配额：</label>
+							<div class="col-md-9">
+								<input type="number" class="form-control" placeholder="应用配额" ng-model="quota.app_instance_limit">
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									   ng-show="myForm.app_instance_limit.$dirty && myForm.app_instance_limit.$valid"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">服务配额：</label>
+							<div class="col-md-9">
+								<input type="number" class="form-control" placeholder="服务配额" ng-model="quota.total_services">
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									  ng-show="myForm.total_services.$dirty && myForm.total_services.$valid"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-3 control-label">路由配额：</label>
+							<div class="col-md-9">
+								<input type="number" class="form-control" placeholder="路由配额" ng-model="quota.total_routes">
+								<span class="glyphicon glyphicon-ok form-control-feedback"
+									  ng-show="myForm.total_routes.$dirty && myForm.total_routes.$valid"></span>
+							</div>
+						</div>
+					</form>
+				</div>
+				<footer class="panel-footer text-right bg-light lter">
+					<button type="submit" class="btn btn-info" ng-click="update()" ng-disabled="myForm.$invalid">
+						确认
+					</button>
+					<button type="reset" class="btn btn-default" onclick="myForm.reset()">取消</button>
+				</footer>
+			</div>
+		</div>
+		<!--<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading font-bold">配额信息统计</div>
+				<div class="panel-body">
+					<div ui-jq="plot"
+						ui-options="
+              [
+                { label: '可用', data: {{[ [10, 120], [20, 70], [30, 70], [40, 60], [50, 50] ]}} },
+                { label: '已用', data: {{[ [10, 50],  [20, 60], [30, 90],  [40, 35] ,[80, 60]]}} }
+              ],
+              {
+                bars: { show: true, fill: true, lineWidth: 1, order: 1, fillColor: { colors: [{ opacity: 0.5 }, { opacity: 0.9}] } },
+                colors: ['{{app.color.info}}', '{{app.color.success}}'],
+                series: { shadowSize: 1 },
+                xaxis:{
+                  font: { color: '#ccc' },
+
+                },
+                yaxis:{ font: { color: '#ccc' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#ccc' },
+                tooltip: true
+              }
+            "
+						style="height: 300px"></div>
+				</div>
+			</div>
+		</div>-->
+			<div class='col-md-6'>
+				<div class="panel panel-default">
+					<div class="panel-body text-center">
+						<div class="row">
+							<div class="col-sm-2"></div>
+							<div class='col-sm-5'>
+								<div id="memRate" ui-jq="easyPieChart"  ui-refresh="usedMemoryPercent" ui-options="{
+													percent: usedMemoryPercent,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+									 class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+									<div>
+										<span class="h2 m-l-sm step" ng-bind="usedMemoryPercent"></span>%
+										<div class="text text-sm">内存</div>
+									</div>
+									<canvas width="316" height="316" style="width: 158px; height: 158px;"></canvas>
+								</div>
+							</div>
+							<div class='col-sm-5'>
+								<div id="appRate" ui-jq="easyPieChart" ui-refresh="usedApplicationPercent" ui-options="{
+													percent: usedApplicationPercent,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+									 class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+									<div>
+										<span class="h2 m-l-sm step" ng-bind="usedApplicationPercent"></span>%
+										<div class="text text-sm">应用</div>
+									</div>
+									<canvas width="316" height="316" style="width: 158px; height: 158px;"></canvas>
+								</div>
+							</div>
+						</div>
+						<div class="line line-dashed b-b line-lg pull-in"></div>
+						<div class="row">
+							<div class="col-sm-2"></div>
+							<div class='col-sm-5'>
+								<div id="serviceRate"  ui-jq="easyPieChart"  ui-refresh="usedServicePercent" ui-options="{
+													percent: usedServicePercent,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+									 class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+									<div>
+										<span class="h2 m-l-sm step" ng-bind="usedServicePercent"></span>%
+										<div class="text text-sm">服务</div>
+									</div>
+									<canvas width="316" height="316" style="width: 158px; height: 158px;"></canvas>
+								</div>
+							</div>
+							<div class='col-sm-5'>
+								<div id="routeRate" ui-jq="easyPieChart" ui-refresh="usedRoutesPercent" ui-options="{
+													percent: usedRoutesPercent,
+													lineWidth: 10,
+													trackColor: '#e8eff0',
+													barColor: '#23b7e5',
+													scaleColor: false,
+													size: 158,
+													rotate: 90,
+													lineCap: 'butt'
+													}"
+									 class="easyPieChart" style="width: 158px; height: 158px; line-height: 158px;">
+									<div>
+										<span class="h2 m-l-sm step" ng-bind="usedRoutesPercent"></span>%
+										<div class="text text-sm">路由</div>
+									</div>
+									<canvas width="316" height="316" style="width: 158px; height: 158px;"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	</tab>
+
+	<tab ng-controller="spaAppsInfoCtl"> <tab-heading> 应用信息</tab-heading>
+		<div class="panel panel-default">
+			<div class="panel-body b-b b-light">
+				<div class="col-sm-5">
+					<button type="submit" class="btn btn-sm btn-info" ng-click="create()">+创建</button>
+					<button type="submit" class="btn btn-sm btn-danger" ng-click="appdelete()">－删除</button>
+					<button type="submit" class="btn btn-sm btn-warning" ng-click="refreshAppInfo()">刷新</button>
+					<button type="submit" class="btn btn-sm btn-primary"  ng-click="appstart()">启动</button>
+					<button type="submit" class="btn btn-sm btn-default" ng-click="appstop()">停止</button>
+				</div>
+				<div class="col-sm-4"></div>
+				<div class="col-sm-3">
+					<input placeholder="查找应用" class="input-sm form-control" type="text" ng-model="filter.filterApp"/>
+				</div>
+			</div>
+			<div ui-grid="gridSpaAppsOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize></div>
+		</div>
+	</tab>
+		<!--<tab> <tab-heading> 域名信息 </tab-heading>
+	<div>
+		<div class="panel-body b-b b-light">
+			<div class="col-sm-5">
+				<button type="submit" class="btn btn-sm btn-info">+创建</button>
+				<button type="submit" class="btn btn-sm btn-danger">－解除绑定</button>
+			</div>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-3">
+				搜索: <input id="domainfilter" type="text"
+					class="form-control input-sm w-sm inline m-r" />
+			</div>
+		</div>
+		<table class="table m-b-none" ui-jq="footable"
+			data-filter="#domainfilter" data-page-size="10">
+			<thead>
+				<tr>
+					<th>&nbsp;</th>
+					<th>域名</th>
+					<th>类型</th>
+					&lt;!&ndash;<th>创建者</th>&ndash;&gt;
+					<th>创建时间</th>
+					<th>更新时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="x in spacedomaindatas">
+					<td><label class="i-checks m-b-none"><input
+							type="checkbox" name="post[]"><i></i></label></td>
+					<td>{{x.name}}</td>
+					<td>{{x.router_group_type}}</td>
+				&lt;!&ndash;	<td>{{x.creater}}</td>&ndash;&gt;
+					<td>{{x.created_at}}</td>
+					<td>{{x.updated_at}}</td>
+				</tr>
+			</tbody>
+			<tfoot class="hide-if-no-paging">
+				<tr>
+					<td colspan="5" class="text-right">
+						<ul class="pagination"></ul>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	</tab>-->
+
+	<tab ng-controller="spaceUserCtl"> <tab-heading> 用户信息 </tab-heading>
+		<tab-heading> 用户信息</tab-heading>
+		<div class="row">
+			<div class="col-md-6" ng-controller="BindedUserCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading font-bold">
+						<input placeholder="查找已绑定用户" class="input-sm form-control" type="text" ng-model="filter.filterBindedUser"/>
+					</div>
+					<div class="panel-body">
+						<div ui-grid="bindedUserGridOptions" ui-grid-pagination ui-grid-auto-resize></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6" ng-controller="UnbindedUserCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading font-bold">
+						<input placeholder="查找未绑定用户" class="input-sm form-control" type="text" ng-model="filter.filterUnBindedUser"/>
+					</div>
+					<div class="panel-body">
+						<div ui-grid="unBindedUserGridOptions" ui-grid-pagination ui-grid-auto-resize></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--<div class="row">-->
+		<!--<div class="col-md-6">-->
+			<!--<div class="panel panel-default">-->
+				<!--<div class="panel-heading font-bold">-->
+					<!--查找已绑定用户: <input id="bindeduserfilter" type="text"-->
+						<!--class="form-control input-sm w-sm inline m-r" />-->
+				<!--</div>-->
+				<!--<div class="panel-body">-->
+					<!--<table class="table m-b-none" ui-jq="footable"-->
+						<!--data-filter="#bindeduserfilter" data-page-size="5">-->
+						<!--<thead>-->
+							<!--<tr>-->
+								<!--<th>用户名</th>-->
+								<!--<th>角色</th>-->
+								<!--<th>绑定操作</th>-->
+							<!--</tr>-->
+						<!--</thead>-->
+						<!--<tbody>-->
+							<!--<tr ng-repeat="x in bindeduserdatas">-->
+								<!--<td>{{x.name}}</td>-->
+								<!--<td>{{x.userRoles}}</td>-->
+								<!--<td><span class="label bg-danger" title="Suspended">解除绑定</span></td>-->
+							<!--</tr>-->
+						<!--</tbody>-->
+						<!--<tfoot class="hide-if-no-paging">-->
+							<!--<tr>-->
+								<!--<td colspan="5" class="text-right">-->
+									<!--<ul class="pagination"></ul>-->
+								<!--</td>-->
+							<!--</tr>-->
+						<!--</tfoot>-->
+					<!--</table>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="col-md-6">-->
+			<!--<div class="panel panel-default">-->
+				<!--<div class="panel-heading font-bold">-->
+					<!--查找未绑定用户: <input id="unbindeduserfilter" type="text"-->
+						<!--class="form-control input-sm w-sm inline m-r" />-->
+				<!--</div>-->
+				<!--<div class="panel-body">-->
+					<!--<table class="table m-b-none" ui-jq="footable"-->
+						<!--data-filter="#unbindeduserfilter" data-page-size="5">-->
+						<!--<thead>-->
+							<!--<tr>-->
+								<!--<th>用户名</th>-->
+								<!--&lt;!&ndash;<th>角色</th>&ndash;&gt;-->
+								<!--<th>绑定操作</th>-->
+							<!--</tr>-->
+						<!--</thead>-->
+						<!--<tbody>-->
+							<!--<tr ng-repeat="x in unbindeduserdatas">-->
+								<!--<td>{{x.name}}</td>-->
+								<!--&lt;!&ndash;<td>{{x.userRoles}}</td>&ndash;&gt;-->
+								<!--<td><span class="label bg-info" title="Suspended">绑定</span></td>-->
+							<!--</tr>-->
+						<!--</tbody>-->
+						<!--<tfoot class="hide-if-no-paging">-->
+							<!--<tr>-->
+								<!--<td colspan="5" class="text-right">-->
+									<!--<ul class="pagination"></ul>-->
+								<!--</td>-->
+							<!--</tr>-->
+						<!--</tfoot>-->
+					<!--</table>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+	</tab>
+	</tabset>
+</div>

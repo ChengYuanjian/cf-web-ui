@@ -1,0 +1,1031 @@
+1000:
+  name: InvalidAuthToken
+  http_code: 401
+  message: "Token有错误，请重新登录"
+
+1001:
+  name: MessageParseError
+  http_code: 400
+  message: "因为如下信息解析错误，请求无法处理: %s"
+
+1002:
+  name: InvalidRelation
+  http_code: 400
+  message: "不合法的关系: %s"
+
+1003:
+  name: InvalidContentType
+  http_code: 400
+  message: "内容类型非法, 合法类型如下: %s"
+
+10000:
+  name: NotFound
+  http_code: 404
+  message: "未知请求"
+
+10001:
+  name: ServerError
+  http_code: 500
+  message: "服务器内部错误"
+
+10002:
+  name: NotAuthenticated
+  http_code: 401
+  message: "未授权"
+
+10003:
+  name: NotAuthorized
+  http_code: 403
+  message: "您没有该请求的权限"
+
+10004:
+  name: InvalidRequest
+  http_code: 400
+  message: "请求不合法"
+
+10005:
+  name: BadQueryParameter
+  http_code: 400
+  message: "查询参数不正确: %s"
+
+10006:
+  name: AssociationNotEmpty
+  http_code: 400
+  message: "请删除[%s],被绑定到[%s]."
+
+10007:
+  name: InsufficientScope
+  http_code: 403
+  message: "您的授权无法访问该资源"
+
+10008:
+  name: UnprocessableEntity
+  http_code: 422
+  message: "该请求语义不合法[%s]"
+
+10009:
+  name: UnableToPerform
+  http_code: 400
+  message: "[%s]无法被完成，因为[%s]"
+
+10010:
+  name: ResourceNotFound
+  http_code: 404
+  message: "%s"
+
+10011:
+  name: DatabaseError
+  http_code: 500
+  message: "数据库出错"
+
+10012:
+  name: OrderByParameterInvalid
+  http_code: 500
+  message: "无法按照[%s]排序"
+
+20001:
+  name: UserInvalid
+  http_code: 400
+  message: "用户信息[%s]不合法"
+
+20002:
+  name: UaaIdTaken
+  http_code: 400
+  message: "UAA ID[%s]被占用"
+
+20003:
+  name: UserNotFound
+  http_code: 404
+  message: "无法找到用户[%s]"
+
+20004:
+  name: UaaUnavailable
+  http_code: 503
+  message: "用户服务器暂时不可用"
+
+20005:
+  name: UaaEndpointDisabled
+  http_code: 501
+  message: "用户认证接入点未使能"
+
+30001:
+  name: OrganizationInvalid
+  http_code: 400
+  message: "组织信息[%s]不合法"
+
+30002:
+  name: OrganizationNameTaken
+  http_code: 400
+  message: "组织名称[%s]已经被占用"
+
+30003:
+  name: OrganizationNotFound
+  http_code: 404
+  message: "无法找到组织[%s]"
+
+40001:
+  name: SpaceInvalid
+  http_code: 400
+  message: "应用空间信息[%s]不合法"
+
+40002:
+  name: SpaceNameTaken
+  http_code: 400
+  message: "应用空间名称[%s]已经被占用"
+
+40003:
+  name: SpaceUserNotInOrg
+  http_code: 400
+  message: "空间和用户不在一个组织[%s]"
+
+40004:
+  name: SpaceNotFound
+  http_code: 404
+  message: "无法找到空间[%s]"
+
+50001:
+  name: ServiceAuthTokenInvalid
+  http_code: 400
+  message: "服务授权Token[%s]不合法"
+
+50002:
+  name: ServiceAuthTokenLabelTaken
+  http_code: 400
+  message: "服务授权Token标签[%s]已被占用"
+
+50003:
+  name: ServiceAuthTokenNotFound
+  http_code: 404
+  message: "无法找到服务授权token[%s]"
+
+50004:
+  name: MissingServiceAuthToken
+  http_code: 500
+  message: "服务授权token缺失[%s]"
+
+60001:
+  name: ServiceInstanceNameEmpty
+  http_code: 400
+  message: "需要服务实例名称"
+
+60002:
+  name: ServiceInstanceNameTaken
+  http_code: 400
+  message: "服务实例名称[%s]已被占用"
+
+60003:
+  name: ServiceInstanceServiceBindingWrongSpace
+  http_code: 400
+  message: "服务实例和服务绑定不在同一个空间[%s]"
+
+60003:
+  name: ServiceInstanceInvalid
+  http_code: 400
+  message: "服务实例[%s]不合法"
+
+60004:
+  name: ServiceInstanceNotFound
+  http_code: 404
+  message: "无法找到服务实例[%s]"
+
+60005:
+  name: ServiceInstanceQuotaExceeded
+  http_code: 400
+  message: "您已经超出了组织服务数配额限制"
+
+60006:
+  name: PreviouslyUsedAs_ServiceInstancePaidQuotaExceeded
+  http_code: 400
+  message: "您已经超出了组织服务数配额限制"
+
+60007:
+  name: ServiceInstanceServicePlanNotAllowed
+  http_code: 400
+  message: "您无法使用收费服务"
+
+60008:
+  name: ServiceInstanceDuplicateNotAllowed
+  http_code: 400
+  message: "空间内已经存在该服务实例，该实例仅允许每个空间创建一个"
+
+60009:
+  name: ServiceInstanceNameTooLong
+  http_code: 400
+  message: "服务实例名称出错，名称长度不能超过50个字符"
+
+60010:
+  name: ServiceInstanceOrganizationNotAuthorized
+  http_code: 403
+  message: "无法创建该服务该计费实例. 您可以看到该计费计划是因为您所在的其他组织有权限创建."
+
+60011:
+  name: ServiceInstanceDeprovisionFailed
+  http_code: 409
+  message: "删除服务时报错[%s]"
+
+60012:
+  name: ServiceInstanceSpaceQuotaExceeded
+  http_code: 400
+  message: "您已经超出了空间服务数配额"
+
+60013:
+  name: ServiceInstanceServicePlanNotAllowedBySpaceQuota
+  http_code: 400
+  message: "您的空间无法使用付费服务"
+
+60014:
+  name: ServiceInstanceSpaceChangeNotAllowed
+  http_code: 400
+  message: "无法更改服务实例的空间信息"
+
+60015:
+  name: ServiceInstanceTagsTooLong
+  http_code: 400
+  message: "服务实例[%s]标签长度不能超过2048个字符"
+
+60016:
+  name: AsyncServiceInstanceOperationInProgress
+  http_code: 409
+  message: "服务实例[%s]的一个操作正在处理中"
+
+60017:
+  name: ServiceInstanceRouteBindingSpaceMismatch
+  http_code: 400
+  message: "服务实例和路由不在一个空间内"
+
+60018:
+  name: ServiceInstanceSpaceNotAuthorized
+  http_code: 403
+  message: "此空间无法创建该服务的对应计费计划的实例"
+
+60019:
+  name: ServiceInstanceRouteServiceURLInvalid
+  http_code: 400
+  message: "路由服务实例的URL[%s]不合法"
+
+60020:
+  name: ServiceInstanceRouteServiceRequiresDiego
+  http_code: 400
+  message: "路由服务仅支持在Diego上运行的应用. 取消绑定服务或者开启应用的Diego"
+
+60021:
+  name: ServiceInstanceRouteServiceDisabled
+  http_code: 403
+  message: "路由服务支持功能未使能"
+
+60022:
+  name: AppPortMappingRequiresDiego
+  http_code: 400
+  message: "应用端口仅支持Diego应用"
+
+60023:
+  name: RoutePortNotEnabledOnApp
+  http_code: 400
+  message: "路由仅能绑定到已经使能端口的应用上"
+
+60024:
+  name: MultipleAppPortsMappedDiegoToDea
+  http_code: 400
+  message: "应用程序路由映射到多个端口。多个端口只支持Diego。请从只有一个应用程序端口映射路线。可以映射到多个航线相同端口(如果需要的话)"
+
+60025:
+  name: VolumeMountServiceDisabled
+  http_code: 403
+  message: "卷挂载服务支持未使能"
+
+70001:
+  name: RuntimeInvalid
+  http_code: 400
+  message: "运行时[%s]不合法"
+
+70002:
+  name: RuntimeNameTaken
+  http_code: 400
+  message: "运行时名称[%s]已经被占用"
+
+70003:
+  name: RuntimeNotFound
+  http_code: 404
+  message: "无法找到运行时[%s]"
+
+80001:
+  name: FrameworkInvalid
+  http_code: 400
+  message: "框架[%s]不合法"
+
+80002:
+  name: FrameworkNameTaken
+  http_code: 400
+  message: "框架名称[%s]已经被占用"
+
+80003:
+  name: FrameworkNotFound
+  http_code: 404
+  message: "无法找到框架[%s]"
+
+90001:
+  name: ServiceBindingInvalid
+  http_code: 400
+  message: "服务绑定非法[%s]"
+
+90002:
+  name: ServiceBindingDifferentSpaces
+  http_code: 400
+  message: "应用和服务实例不在同一个空间[%s]"
+
+90003:
+  name: ServiceBindingAppServiceTaken
+  http_code: 400
+  message: "服务[%s]已经被绑定"
+
+90004:
+  name: ServiceBindingNotFound
+  http_code: 404
+  message: "无法找到服务绑定[%s]"
+
+90005:
+  name: UnbindableService
+  http_code: 400
+  message: "该服务不支持绑定"
+
+90006:
+  name: InvalidLoggingServiceBinding
+  http_code: 502
+  message: "服务试图从应用程序抓取日志,但该服务不是按照日志服务注册的。请与服务提供商联系"
+
+100001:
+  name: AppInvalid
+  http_code: 400
+  message: "应用不合法[%s]"
+
+100002:
+  name: AppNameTaken
+  http_code: 400
+  message: "应用名称[%s]已被占用"
+
+100004:
+  name: AppNotFound
+  http_code: 404
+  message: "无法找到应用[%s]"
+
+100005:
+  name: AppMemoryQuotaExceeded
+  http_code: 400
+  message: "您已经超过组织的内存限制"
+
+100006:
+  name: AppMemoryInvalid
+  http_code: 400
+  message: "您为应用程序指定了无效的内存数量"
+
+100007:
+  name: QuotaInstanceMemoryLimitExceeded
+  http_code: 400
+  message: "您超过了组织的实例内存配额"
+
+100008:
+  name: QuotaInstanceLimitExceeded
+  http_code: 400
+  message: "您超过了组织的实例内存配额"
+
+110001:
+  name: ServicePlanInvalid
+  http_code: 400
+  message: "服务计划非法: %s"
+
+110002:
+  name: ServicePlanNameTaken
+  http_code: 400
+  message: "服务计划名已被占用: %s"
+
+110003:
+  name: ServicePlanNotFound
+  http_code: 404
+  message: "服务计划找不到: %s"
+
+110004:
+  name: ServicePlanNotUpdateable
+  http_code: 400
+  message: "服务不支持变更计划。"
+
+120001:
+  name: ServiceInvalid
+  http_code: 400
+  message: "服务是非法的: %s"
+
+120002:
+  name: ServiceLabelTaken
+  http_code: 400
+  message: "服务标签已被占用: %s"
+
+120003:
+  name: ServiceNotFound
+  http_code: 404
+  message: "服务找不到: %s"
+
+130001:
+  name: DomainInvalid
+  http_code: 400
+  message: "域名是非法的: %s"
+
+130002:
+  name: DomainNotFound
+  http_code: 404
+  message: "域名找不到: %s"
+
+130003:
+  name: DomainNameTaken
+  http_code: 400
+  message: "域名名字已被占用: %s"
+
+130004:
+  name: PathInvalid
+  http_code: 400
+  message: "路径无效: %s"
+
+130005:
+  name: TotalPrivateDomainsExceeded
+  http_code: 400
+  message: "私有域名数超过了组织的配额: %s"
+
+130006:
+  name: ServiceDoesNotSupportRoutes
+  http_code: 400
+  message: 该服务不支持路由绑定。
+
+130007:
+  name: RouteAlreadyBoundToServiceInstance
+  http_code: 400
+  message: "一个路由只能绑定一个服务实例"
+
+130008:
+  name: ServiceInstanceAlreadyBoundToSameRoute
+  http_code: 400
+  message: "路由和服务实例已经绑定。"
+
+140001:
+  name: LegacyApiWithoutDefaultSpace
+  http_code: 400
+  message: "遗留的api调用需要有缺省的应用空间，但是该用户没有缺省的应用空间设定"
+
+150001:
+  name: AppPackageInvalid
+  http_code: 400
+  message: "应用包无效: %s"
+
+150002:
+  name: AppPackageNotFound
+  http_code: 404
+  message: "应用包找不到: %s"
+
+150003:
+  name: InsufficientRunningResourcesAvailable
+  http_code: 503
+  message: "一个或多个实例不能启动，因为运行资源不足."
+
+150004:
+  name: PackageBitsAlreadyUploaded
+  http_code: 400
+  message: "bits只能上传一次。创建一个新的包来上传不同的bits."
+
+150005:
+  name: BlobstoreNotLocal
+  http_code: 400
+  message: "只能通过blobstore下载blobs"
+
+150006:
+  name: BlobstoreUnavailable
+  http_code: 502
+  message: "执行操作失败，blobstore不可达"
+
+160001:
+  name: AppBitsUploadInvalid
+  http_code: 400
+  message: "应用上传无效: %s" 
+
+160002:
+  name: AppBitsCopyInvalid
+  http_code: 400
+  message: "应用复制无效: %s"
+
+160003:
+  name: AppResourcesFileModeInvalid
+  http_code: 400
+  message: "资源文件模式无效: %s"
+
+160004:
+  name: AppResourcesFilePathInvalid
+  http_code: 400
+  message: "资源文件路径无效: %s"
+
+170001:
+  name: StagingError
+  http_code: 400
+  message: "展示错误: %s"
+
+170002:
+  name: NotStaged
+  http_code: 400
+  message: "应用没有完成展示"
+
+170003:
+  name: NoAppDetectedError
+  http_code: 400
+  message: "应用不能被任何一种buildpack识别"
+
+170004:
+  name: BuildpackCompileFailed
+  http_code: 400
+  message: "应用展示在buildpack编译阶段失败"
+
+170005:
+  name: BuildpackReleaseFailed
+  http_code: 400
+  message: "应用展示在buildpack释放阶段失败"
+
+170006:
+  name: NoBuildpacksFound
+  http_code: 400
+  message: "没有可用的buildpacks"
+
+170007:
+  name: StagingTimeExpired
+  http_code: 504
+  message: "展示时间超时: %s"
+
+170008:
+  name: InsufficientResources
+  http_code: 400
+  message: "资源不够"
+
+170009:
+  name: NoCompatibleCell
+  http_code: 400
+  message: "找不到兼容的单元"
+
+170010:
+  name: StagerUnavailable
+  http_code: 503
+  message: "stager不可用: %s"
+
+170011:
+  name: StagerError
+  http_code: 500
+  message: "stager出错: %s"
+
+170015:
+  name: RunnerUnavailable
+  http_code: 503
+  message: "运行容器不可达: %s"
+
+170016:
+  name: RunnerError
+  http_code: 500
+  message: "运行容器出错: %s"
+
+170017:
+  name: StagingInProgress
+  http_code: 422
+  message: "每一个应用一次只能上传一个包"
+
+170018:
+  name: InvalidTaskAddress
+  http_code: 500
+  message: "无效的配置: %s"
+
+170019:
+  name: TaskError
+  http_code: 500
+  message: "任务失败: %s"
+
+170020:
+  name: TaskWorkersUnavailable
+  http_code: 503
+  message: "任务执行者无法获取: %s"
+
+170021:
+  name: InvalidTaskRequest
+  http_code: 422
+  message: "任务请求无效: %s"
+
+180002:
+  name: ServiceGatewayError
+  http_code: 503
+  message: "服务网关内部错误: %s"
+
+180003:
+  name: ServiceNotImplemented
+  http_code: 501
+  message: "服务不支持该操作"
+
+180004:
+  name: SDSNotAvailable
+  http_code: 501
+  message: "没有可用的序列化服务后台"
+
+190001:
+  name: FileError
+  http_code: 400
+  message: "文件错误: %s"
+
+200001:
+  name: StatsError
+  http_code: 400
+  message: "统计信息错误: %s"
+
+200002:
+  name: StatsUnavailable
+  http_code: 503
+  message: "统计信息无法获取: %s"
+
+200003:
+  name: AppStoppedStatsError
+  http_code: 400
+  message: "不能获取已停止的应用的统计信息: %s"
+
+210001:
+  name: RouteInvalid
+  http_code: 400
+  message: "路由无效: %s"
+
+210002:
+  name: RouteNotFound
+  http_code: 404
+  message: "路由不能找到: %s"
+
+210003:
+  name: RouteHostTaken
+  http_code: 400
+  message: "主机被占用: %s"
+
+210004:
+  name: RoutePathTaken
+  http_code: 400
+  message: "路径被占用: %s"
+
+210005:
+  name: RoutePortTaken
+  http_code: 400
+  message: "端口被占用: %s"
+
+210006:
+  name: RouteMappingTaken
+  http_code: 400
+  message: "路由映射被占用: %s"
+
+210007:
+  name: RouteMappingNotFound
+  http_code: 404
+  message: "路由映射不能找到: %s"
+
+21008:
+  name: OutOfRouterGroupPorts
+  http_code: 403
+  message: "路由组已经没有可用的端口:%s. 请联系管理员查询详情"
+
+220001:
+  name: InstancesError
+  http_code: 400
+  message: "实例错误: %s"
+
+220002:
+  name: InstancesUnavailable
+  http_code: 503
+  message: "实例信息缺失: %s"
+
+230001:
+  name: BillingEventQueryInvalid
+  http_code: 400
+  message: "计费事件查询的起止时间丢失或者无效"
+
+230002:
+  name: EventNotFound
+  http_code: 404
+  message: "事件不能被找到: %s"
+
+240001:
+  name: QuotaDefinitionNotFound
+  http_code: 404
+  message: "配额的定义不能被找到: %s"
+
+240002:
+  name: QuotaDefinitionNameTaken
+  http_code: 400
+  message: "配额的定义已经被占用: %s"
+
+240003:
+  name: QuotaDefinitionInvalid
+  http_code: 400
+  message: "配额的定义无效: %s"
+
+240004:
+  name: QuotaDefinitionMemoryLimitNegative
+  http_code: 400
+  message: "内存的配额不能为负数"
+
+250001:
+  name: StackInvalid
+  http_code: 400
+  message: "该堆栈是非法的: %s"
+
+250002:
+  name: StackNameTaken
+  http_code: 400
+  message: "堆栈名已经被占用: %s"
+
+250003:
+  name: StackNotFound
+  http_code: 404
+  message: "堆栈不能找到: %s"
+
+260001:
+  name: ServicePlanVisibilityInvalid
+  http_code: 400
+  message: "service plan的值是无效的: %s"
+
+260002:
+  name: ServicePlanVisibilityAlreadyExists
+  http_code: 400
+  message: "该服务计划和组织已经绑定: %s"
+
+260003:
+  name: ServicePlanVisibilityNotFound
+  http_code: 404
+  message: "不能确定服务计划的值: %s"
+
+270001:
+  name: ServiceBrokerInvalid
+  http_code: 400
+  message: "Service broker是非法的: %s"
+
+270002:
+  name: ServiceBrokerNameTaken
+  http_code: 400
+  message: "service broker的名字已经被占用: %s"
+
+270003:
+  name: ServiceBrokerUrlTaken
+  http_code: 400
+  message: "service broker的url已经被占用: %s"
+
+270004:
+  name: ServiceBrokerNotFound
+  http_code: 404
+  message: "service broker找不到: %s"
+
+270010:
+  name: ServiceBrokerNotRemovable
+  http_code: 400
+  message: "不能删除已经跟服务实例绑定的brokers: %s"
+
+270011:
+  name: ServiceBrokerUrlInvalid
+  http_code: 400
+  message: "%s 不是一个有效的URL"
+
+270012:
+  name: ServiceBrokerCatalogInvalid
+  http_code: 502
+  message: "service broker目录无效: %s"
+
+270013:
+  name: ServiceBrokerDashboardClientFailure
+  http_code: 502
+  message: "仪表盘客户端不能被修改: %s"
+
+270014:
+  name: ServiceBrokerAsyncRequired
+  http_code: 400
+  message: "对于异步操作，服务计划需要客户端支持"
+
+270015:
+  name: ServiceDashboardClientMissingUrl
+  http_code: 502
+  message: "service broker在返回仪表盘客户端配置信息时没有给出页面url信息"
+
+290001:
+  name: BuildpackNameTaken
+  http_code: 400
+  message: "buildpack的名字已被占用: %s"
+
+290002:
+  name: BuildpackBitsUploadInvalid
+  http_code: 400
+  message: "buildpack上传无效 %s"
+
+290003:
+  name: BuildpackInvalid
+  http_code: 400
+  message: "buildpack无效 %s"
+
+290004:
+  name: CustomBuildpacksDisabled
+  http_code: 400
+  message: "定制化的buildpack被禁用"
+
+290005:
+  name: BuildpackLocked
+  http_code: 409
+  message: "buildpack被锁定"
+
+290006:
+  name: JobTimeout
+  http_code: 524
+  message: "执行的任务超时"
+
+290007:
+  name: SpaceDeleteTimeout
+  http_code: 524
+  message: "删除空间%s超时，空间内的资源未完全删除"
+
+290008:
+  name: SpaceDeletionFailed
+  http_code: 502
+  message: "删除空间%s失败，因为空间内一个或多个资源无法删除\n\n%s"
+
+290009:
+  name: OrganizationDeleteTimeout
+  http_code: 524
+  message: "删除组织%s超时，因为组织内的所有资源没删除完"
+
+290010:
+  name: OrganizationDeletionFailed
+  http_code: 502
+  message: "删除组织%s失败，因为组织内部的一个或多个资源无法删除\n\n%s"
+
+290011:
+  name: NonrecursiveSpaceDeletionFailed
+  http_code: 400
+  message: "空间里的资源 %s 必须首先删除，或者删除空间时指定级联删除"
+
+300001:
+  name: SecurityGroupInvalid
+  http_code: 400
+  message: "安全组无效: %s"
+
+300002:
+  name: SecurityGroupNotFound
+  http_code: 404
+  message: "安全组找不到: %s"
+
+300003:
+  name: SecurityGroupStagingDefaultInvalid
+  http_code: 400
+  message: "安全组找不到: %s"
+
+300004:
+  name: SecurityGroupRunningDefaultInvalid
+  http_code: 400
+  message: "安全组找不到: %s"
+
+300005:
+  name: SecurityGroupNameTaken
+  http_code: 400
+  message: "安全组的名字已被占用: %s"
+
+310001:
+  name: SpaceQuotaDefinitionInvalid
+  http_code: 400
+  message: "空间配额的定义无效: %s"
+
+310002:
+  name: SpaceQuotaDefinitionNameTaken
+  http_code: 400
+  message: "空间配额的定义名字已经被占用: %s"
+
+310003:
+  name: SpaceQuotaMemoryLimitExceeded
+  http_code: 400
+  message: "你已超出了空间的内存限制"
+
+310004:
+  name: SpaceQuotaInstanceMemoryLimitExceeded
+  http_code: 400
+  message: "分配给实例的内存超过了空间允许的配额"
+
+310005:
+  name: SpaceQuotaTotalRoutesExceeded
+  http_code: 400
+  message: "使用的路由数量超过了空间允许的配额"
+
+310006:
+  name: OrgQuotaTotalRoutesExceeded
+  http_code: 400
+  message: "使用的路由数量超过了组织允许的配额"
+
+310007:
+  name: SpaceQuotaDefinitionNotFound
+  http_code: 404
+  message: "空间配额没有定义:%s"
+
+310008:
+  name: SpaceQuotaInstanceLimitExceeded
+  http_code: 400
+  message: "使用的实例超过了空间允许的配额"
+
+310009:
+  name: OrgQuotaTotalReservedRoutePortsExceeded
+  http_code: 400
+  message: "使用的路由端口数超出了组织允许的配额"
+
+310010:
+  name: SpaceQuotaTotalReservedRoutePortsExceeded
+  http_code: 400
+  message: "使用的路由端口数超出了空间允许的配额"
+
+320001:
+  name: DiegoDisabled
+  http_code: 400
+  message: Diego没有启用
+
+320002:
+  name: DiegoDockerBuildpackConflict
+  http_code: 400
+  message: "不能同时指定一个定制化的buildpack和docker镜像"
+
+320003:
+  name: DockerDisabled
+  http_code: 400
+  message: 暂不提供对docker的支持.
+
+320004:
+  name: StagingBackendInvalid
+  http_code: 403
+  message: "The request staging completion endpoint only handles apps desired to stage on the Diego backend."
+
+320005:
+  name: BackendSelectionNotAuthorized
+  http_code: 403
+  message: "您无法选择运行该应用的后台"
+
+330000:
+  name: FeatureFlagNotFound
+  http_code: 404
+  message: "特性标记[%s]找不到"
+
+330001:
+  name: FeatureFlagInvalid
+  http_code: 400
+  message: "特性标记[%s]不合法"
+
+330002:
+  name: FeatureDisabled
+  http_code: 403
+  message: "特性[%s]未使能"
+
+340001:
+  name: UserProvidedServiceInstanceNotFound
+  http_code: 404
+  message: "无法找到服务实例[%s]"
+
+350001:
+  name: ProcessInvalid
+  http_code: 400
+  message: "处理[%s]不合法"
+
+350002:
+  name: UnableToDelete
+  http_code: 400
+  message: "无法处理删除动作[%s]"
+
+350003:
+  name: ProcessNotFound
+  http_code: 404
+  message: "无法找到处理[%s]"
+
+
+360001:
+  name: ServiceKeyNameTaken
+  http_code: 400
+  message: "服务Key[%s]已经被占用"
+
+360002:
+  name: ServiceKeyInvalid
+  http_code: 400
+  message: "服务Key[%s]不合法"
+
+360003:
+  name: ServiceKeyNotFound
+  http_code: 404
+  message: "无法找到服务Key[%s]"
+
+360004:
+  name: ServiceKeyNotSupported
+  http_code: 400
+  message: "%s"
+
+370001:
+  name: RoutingApiUnavailable
+  http_code: 503
+  message: "路由接口暂时不可用"
+
+370002:
+  name: TcpRoutingDisabled
+  http_code: 403
+  message: "TCP路由支持未使能"
+
+380001:
+  name: EnvironmentVariableGroupInvalid
+  http_code: 400
+  message: "如下环境变量组不正确: %s"
+
